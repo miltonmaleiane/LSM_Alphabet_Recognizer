@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detecção em tempo real - LSM</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="static/css/webcam.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>LSM</h1>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="webcam.html">Webcam</a>
+                <a href="alphabet.html">Aprenda o  alfabeto</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="content-section">
+            <h2>Detecção em tempo real - LSM</h2>
+            <p>
+                Pratique a Língua de Sinais Moçambicana (LSM) com rastreamento de mãos em tempo real. Mostre seus sinais para a câmera e veja imediatamente o reconhecimento dos seus gestos.
+            </p>
+            <div class="warning">Atenção: Este é um protótipo e algumas funcionalidades ainda estão em fase de testes.</div>
+            
+            <div class="video-container">
+                <video id="webcam" autoplay playsinline></video>
+                <canvas class="output_canvas" id="output_canvas" width="640" height="480"></canvas>
+            </div>
+            <p id="gesture_output" class="output"></p>
+            
+            <div class="controls">
+                <button id="webcamButton" class="control-btn">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">Enable Camera</span>
+                </button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Desenvolvido como parte do Trabalho de Conclusão de Curso (TCC) | <a href="https://www.linkedin.com/in/mmj2001/" target="_blank">Saiba mais</a></p>
+
+    </footer>
+    <script type="module" src="static\js\webcam.js"></script>
+   
+</body>
+</html>
