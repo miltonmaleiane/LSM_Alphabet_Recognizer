@@ -47,14 +47,14 @@ async function enableCam() {
 
     if (webcamRunning) {
         webcamRunning = false;
-        enableWebcamButton.textContent = "Enable Camera";
+        enableWebcamButton.textContent = "Activar Câmera";
         const stream = video.srcObject;
         const tracks = stream.getTracks();
         tracks.forEach(track => track.stop());
         video.srcObject = null;
     } else {
         webcamRunning = true;
-        enableWebcamButton.textContent = "Disable Camera";
+        enableWebcamButton.textContent = "Desactivar Câmera";
         try {
             const constraints = {
                 video: {
@@ -119,7 +119,7 @@ async function predictWebcam() {
         const categoryName = results.gestures[0][0].categoryName;
         const categoryScore = parseFloat(results.gestures[0][0].score * 100).toFixed(2);
         // Remove handedness display
-        gestureOutput.innerText = `Detected Sign: ${categoryName}\nConfidence: ${categoryScore}%`;
+        gestureOutput.innerText = `Gesto Detectado: ${categoryName}\nConfiança: ${categoryScore}%`;
     } else {
         gestureOutput.style.display = "none";
     }

@@ -65,13 +65,13 @@ if (hasGetUserMedia()) {
     enableWebcamButton.addEventListener("click", enableCam);
 } else {
     console.warn("getUserMedia() is not supported by your browser");
-    enableWebcamButton.innerText = "Webcam Not Supported";
+    enableWebcamButton.innerText = "Webcam Não Suportada";
     enableWebcamButton.disabled = true;
 }
 
 async function enableCam() {
     if (!gestureRecognizer) {
-        alert("Please wait for gestureRecognizer to load");
+        alert("Por favor, aguarde o carregamento do leitor de gestos");
         return;
     }
 
@@ -79,7 +79,7 @@ async function enableCam() {
 
     if (webcamRunning) {
         webcamRunning = false;
-        enableWebcamButton.innerText = "Enable Camera";
+        enableWebcamButton.innerText = "Activar Câmera";
         // Stop the webcam
         const stream = video.srcObject;
         const tracks = stream.getTracks();
@@ -87,7 +87,7 @@ async function enableCam() {
         video.srcObject = null;
     } else {
         webcamRunning = true;
-        enableWebcamButton.innerText = "Disable Camera";
+        enableWebcamButton.innerText = "Desactivar Câmera";
         // Start the webcam
         try {
             const constraints = {
@@ -101,7 +101,7 @@ async function enableCam() {
             video.addEventListener("loadeddata", predictWebcam);
         } catch (err) {
             console.error("Error accessing webcam:", err);
-            alert("Error accessing webcam. Please make sure you have granted camera permissions.");
+            alert("Erro ao acessar a webcam. Por favor, verifique se você concedeu permissões de câmera.");
         }
     }
 }
@@ -161,14 +161,14 @@ async function predictWebcam() {
         if (selectedLetter) {
             if (categoryName.toUpperCase() === selectedLetter.toUpperCase()) {
                 gestureOutput.className = 'output success';
-                gestureOutput.innerText = `Correct! You're showing the letter ${selectedLetter}`;
+                gestureOutput.innerText = `Correcto! O seu gesto actual é ${selectedLetter}`;
                 
                 if (gestureChanged) {
                     playSound(correctSound);
                 }
             } else {
                 gestureOutput.className = 'output error';
-                gestureOutput.innerText = `Keep practicing! You showed ${categoryName}, but we're looking for ${selectedLetter}`;
+                gestureOutput.innerText = `Continue praticando! O seu gesto actual é ${categoryName}, mas estamos a procura do ${selectedLetter}`;
                 
                 if (gestureChanged) {
                     playSound(incorrectSound);
@@ -176,7 +176,7 @@ async function predictWebcam() {
             }
         } else {
             gestureOutput.className = 'output neutral';
-            gestureOutput.innerText = `Detected letter: ${categoryName}\nConfidence: ${categoryScore}%`;
+            gestureOutput.innerText = `Gesto detectado: ${categoryName}\nConfiança: ${categoryScore}%`;
         }
     } else {
         gestureOutput.style.display = "none";
@@ -209,16 +209,16 @@ function createSoundToggle() {
     const soundToggle = document.createElement('button');
     soundToggle.id = 'soundToggle';
     soundToggle.className = 'control-btn sound-toggle';
-    soundToggle.innerHTML = '🔊 Sound On';
+    soundToggle.innerHTML = '🔊 Som Activo';
     soundToggle.style.marginLeft = '10px';
     
     soundToggle.addEventListener('click', () => {
         soundEnabled = !soundEnabled;
         if (soundEnabled) {
-            soundToggle.innerHTML = '🔊 Sound On';
+            soundToggle.innerHTML = '🔊 Som Activo';
             playSound(selectSound); // Play a sound to confirm sound is on
         } else {
-            soundToggle.innerHTML = '🔇 Sound Off';
+            soundToggle.innerHTML = '🔇 Som Desactivo';
         }
     });
     
