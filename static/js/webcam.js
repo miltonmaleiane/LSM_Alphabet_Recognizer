@@ -41,7 +41,7 @@ if (hasGetUserMedia()) {
 
 async function enableCam() {
     if (!gestureRecognizer) {
-        alert("Please wait for gestureRecognizer to load");
+        alert("Por favor, aguarde o carregamento do leitor de gestos");
         return;
     }
 
@@ -67,7 +67,7 @@ async function enableCam() {
             video.addEventListener("loadeddata", predictWebcam);
         } catch (err) {
             console.error("Error accessing webcam:", err);
-            alert("Error accessing webcam. Please make sure you have granted camera permissions.");
+            alert("Erro ao acessar a webcam. Por favor, certifique-se de ter concedido as permissões de câmera.");
         }
     }
 }
